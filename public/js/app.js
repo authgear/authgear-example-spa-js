@@ -1,15 +1,11 @@
 let authgearClient = null;
 
-const fetchAuthConfig = () => fetch("/authgear_config.json");
-
 const configureClient = async () => {
-    const response = await fetchAuthConfig();
-    const config = await response.json();
     authgearClient = window.authgear.default;
 
     await authgearClient.configure({
-        endpoint: config.endpoint,
-        clientID: config.clientID,
+        endpoint: "<YOUR_AUTHGEAR_PROJECT_DOMAIN>",
+        clientID: "<YOUR_AUTHGEAR_APP_CLIENT_ID>",
         sessionType: "refresh_token",
     }).then(
         () => {
@@ -24,7 +20,7 @@ const configureClient = async () => {
 const login = async () => {
     await authgearClient
         .startAuthentication({
-            redirectURI: window.location.origin,
+            redirectURI: "http://localhost:3000/",
             prompt: "login",
         })
         .then(
@@ -37,8 +33,8 @@ const login = async () => {
         );
 };
 
-const logout = () => {
-    authgearClient
+const logout = async () => {
+    await authgearClient
     .logout({
       redirectURI: window.location.origin,
     })
@@ -50,6 +46,8 @@ const logout = () => {
         console.log("Failed to logout");
       }
     );
+
+    updateUI();
 };
 
 window.onload = async () => {
@@ -58,7 +56,7 @@ window.onload = async () => {
 
     const query = window.location.search;
     if (query.includes("code=")) {
-
+        await authgearClient.finishAuthentication();
         updateUI();
 
         window.history.replaceState({}, document.title, "/");

@@ -4,13 +4,14 @@ This repo demonstrates how to add authentication into any JavaScript apps using 
 
 ## Project setup
 
-For example, `npm run dev` will run the application using `nodemon`, monitoring for changes as we modify files.
+1. Run `npm install` to install project dependencies. 
+2. Next, run `npm run dev` to start the application using `nodemon`, monitoring for changes as we modify files.
 
 ### Configuration
 
 The project needs to be configured with your Authgear app's Endpoint and client ID in order for the authentication flow to work.
 
-To do this, in the filed called `authgear_config.json`, replace the values within with your own Authgear application credentials:
+To do this, in `app.js`, replace these values with with your own Authgear application credentials:
 
 ```json
 {
