@@ -50,6 +50,10 @@ const logout = async () => {
     updateUI();
 };
 
+const openUserSettings = () => {
+    authgearClient.open("/settings");
+}
+
 window.onload = async () => {
     await configureClient();
     updateUI();
@@ -68,4 +72,5 @@ const updateUI = async () => {
 
     document.getElementById("btn-logout").disabled = !isAuthenticated;
     document.getElementById("btn-login").disabled = isAuthenticated;
+    document.getElementById("btn-settings").disabled = !isAuthenticated;
 };
