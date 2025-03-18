@@ -1,11 +1,13 @@
 let authgearClient = null;
+const AUTHGEAR_CLIENT_ID = "<CLIENT_ID>";
+const AUTHGEAR_ENDPOINT = "<AUTHGEAR_ENDPOINT>";
 
 const configureClient = async () => {
     authgearClient = window.authgear.default;
 
     await authgearClient.configure({
-        endpoint: "<YOUR_AUTHGEAR_PROJECT_DOMAIN>",
-        clientID: "<YOUR_AUTHGEAR_APP_CLIENT_ID>",
+        endpoint: AUTHGEAR_ENDPOINT,
+        clientID: AUTHGEAR_CLIENT_ID,
         sessionType: "refresh_token",
     }).then(
         () => {

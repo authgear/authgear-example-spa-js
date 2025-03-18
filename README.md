@@ -11,14 +11,14 @@ This repo demonstrates how to add authentication into any JavaScript apps using 
 
 The project needs to be configured with your Authgear app's Endpoint and client ID in order for the authentication flow to work.
 
-To do this, in `app.js`, replace these values with with your own Authgear application credentials:
+To do this, in `public/app.js`, replace these values with with your own Authgear application credentials:
 
-```json
-{
-    "endpoint": "{YOUR_AUTHGEAR_APP_ENDPOINT}",
-    "clientId": "{YOUR_AUTHGEAR_APP_CLIENT_ID}"
-}
+```javascript
+const AUTHGEAR_CLIENT_ID = "<CLIENT_ID>";
+const AUTHGEAR_ENDPOINT = "<AUTHGEAR_ENDPOINT>";
 ```
+
+Ensure that you add `http://localhost:3000/` as an Authorized Redirect URI in your Authgear Client Application.
 
 ## What is Authgear?
 
