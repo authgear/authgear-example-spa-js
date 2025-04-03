@@ -7,6 +7,11 @@ This repo demonstrates how to add authentication into any JavaScript apps using 
 1. Run `npm install` to install project dependencies. 
 2. Next, run `npm run dev` to start the application using `nodemon`, monitoring for changes as we modify files.
 
+### Create Free Authgear Account
+1. Goto [https://portal.authgear.com](https://portal.authgear.com) and create a free account (or login to your existing account).
+
+2. Then navigate to Applications and create a new client application of type Single Page Application.
+
 ### Configuration
 
 The project needs to be configured with your Authgear app's Endpoint and client ID in order for the authentication flow to work.
